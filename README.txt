@@ -94,4 +94,4 @@ For transparency, no manual post-processing was applied — all numbers and figu
 
 📄 License
 
-MIT License — free use and reproduction are permitted with appropriate citation.
+License — free use and reproduction are permitted with appropriate citation.
