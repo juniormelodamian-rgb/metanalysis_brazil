@@ -8,7 +8,7 @@ library(ggplot2)
 # 1. Read data table
 # ---------------------------
 df <- read_excel(
-  "C:\\DAMIAN83\\Revistas\\Nature Climate Change\\materialartigo\\Revi5\\codR\\Brasil.xlsx",
+  "C:\\path to\\Brasil.xlsx",
   sheet = "Brasil_20",
   na = c("", "NA")
 )
@@ -173,7 +173,7 @@ res_fe_df   <- get_rma_results(Cer10FE)
 # ---------------------------
 # 12. Save Excel file
 # ---------------------------
-out_base <- "C:\\DAMIAN83\\Revistas\\Nature Climate Change\\materialartigo\\Revi5\\codR\\Brasil20F.xlsx"
+out_base <- "C:\\path to\\Brasil20F.xlsx"
 dir.create(dirname(out_base), recursive = TRUE, showWarnings = FALSE)
 
 write_xlsx(
