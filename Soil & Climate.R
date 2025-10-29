@@ -73,7 +73,7 @@ lnRR_to_perc <- function(estimate, ci_lb, ci_ub){
 # ===========================================================
 # 1) Read Input Sheet
 # ===========================================================
-dat <- read_excel("C:\\Drive\\Arquivos Submissão_Nature_Communication\\Metanalise_Manejo\\Geral_Pasture\\NV_grassland.xlsx",
+dat <- read_excel("C:\\path to\\NV_grassland.xlsx",
                   sheet = "Degraded")
 
 # ===========================================================
