@@ -14,6 +14,7 @@ metanalysis_brazil/
 │
 ├── metanalysis_brazil.R         # Main meta-analysis script (Mean Difference models)
 ├── metanalysis_multilevel.R     # Multilevel meta-analysis (lnRR, Amazon case example)
+├── Soil_Climate.R               # Soil & Climate analysis (biome-level lnRR models)
 ├── Brasil.xlsx                  # Input dataset (not included if confidential)
 ├── Brasil20F.xlsx               # Example output file for the 0–20 cm layer
 ├── README.md                    # This documentation file
@@ -24,7 +25,7 @@ metanalysis_brazil/
 
 ## 📦 R Package Dependencies
 
-Both scripts require the following CRAN packages:
+All scripts require the following CRAN packages:
 
 ```r
 library(readxl)
@@ -41,10 +42,10 @@ All functions follow the `metafor` syntax and are fully compatible with Windows,
 
 ## ⚙️ Running the Analyses
 
-### 1️⃣ Mean Difference (MD) Model
-Script: **`metanalysis_brazil.R`**
+### 1️⃣ Mean Difference (MD) Model  
+**Script:** `metanalysis_brazil.R`
 
-Adjust the input file path in line 9:
+Adjust the input file path (line 9):
 ```r
 df <- read_excel("C:/path/to/Brasil.xlsx", sheet = "Brasil_20")
 ```
@@ -58,7 +59,7 @@ The script automatically generates:
 - Egger’s regression, Fail-safe N, and Trim-and-Fill tests.  
 - Leave-one-out sensitivity plots and bias diagnostics.  
 
-Outputs are automatically saved as Excel and TIFF files:
+**Outputs:**
 ```
 Brasil20F.xlsx
 Brasil20F.xlsx_FunnelPlot_Normal.tif
@@ -69,8 +70,8 @@ Brasil20F.xlsx_PercentDiff_Linear_TrimFill.tif
 
 ---
 
-### 2️⃣ Multilevel Model (lnRR)
-Script: **`metanalysis_multilevel.R`**
+### 2️⃣ Multilevel Model (lnRR)  
+**Script:** `metanalysis_multilevel.R`
 
 This script applies a **multilevel meta-analysis** using log response ratios (lnRR)  
 as effect sizes, with random effects structured as `study_id/depth`.
@@ -82,10 +83,27 @@ It automatically:
 - Evaluates heterogeneity (τ², I², R²).  
 - Produces Trim-and-Fill and Fail-safe N summaries.
 
-Example outputs:
+**Example outputs:**
 ```
 Amazon_1_2f.xlsx
 Atlantic_Forest_trimfill_failsafe_summary.xlsx
+```
+
+---
+
+### 3️⃣ Soil & Climate Model  
+**Script:** `Soil_Climate.R`
+
+This script focuses on **biome-level lnRR mixed-effects models** assessing SOC variation as a function of climatic and edaphic gradients.
+
+It:
+- Parses soil depth intervals and computes lnRR and variance.  
+- Fits intercept-only and moderator models by biome.  
+- Outputs biome-level lnRR summaries with confidence intervals and % change.  
+- Exports results to Excel:
+
+```
+Pastdegraded.xlsx
 ```
 
 ---
@@ -113,5 +131,4 @@ To reproduce the analyses:
 
 ## 📄 License
 
-**License:** Free use and reproduction are permitted with appropriate citation.  
-If used in a publication, please cite the corresponding article and this repository.
+**License:** Free use and reproduction are permitted with appropriate citation.
